@@ -2,13 +2,13 @@
 main:
     # Store all values into registers
     addi t0,zero,1 
-    sd t0,-0(s2)             # A[0] = 1
+    sw t0,-0(s2)             # A[0] = 1
     addi t0,zero,2
-    sd t0,-8(s2)             # A[1] = 2
-    sd zero, -16(s2)         # A[2] thru A[5] = 0
-    sd zero, -24(s2)
-    sd zero, -32(s2)
-    sd zero, -40(s2)
+    sw t0,8(s2)             # A[1] = 2
+    sw zero, 16(s2)         # A[2] thru A[5] = 0
+    sw zero, 24(s2)
+    sw zero, 32(s2)
+    sw zero, 40(s2)
 
     #For loop
     addi t0, zero, 1        # i(t0) = 1
@@ -36,5 +36,5 @@ myFunction:
     addi t6, zero, 1 # temp = 1
     sll a3, a3, t6
     addi a0, a3, 10 
-    jr ra
+    jalr ra, 0(ra)
     
